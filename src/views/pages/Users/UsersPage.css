@@ -1,0 +1,11 @@
+* {
+    text-transform: unset !important;
+    letter-spacing: normal;
+    font-weight: 300;
+}
+
+.table-row:hover {
+    background-color: #7FBA5E !important;
+    color: white;
+    cursor: pointer;
+}
