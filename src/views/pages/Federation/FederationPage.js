@@ -2,13 +2,12 @@ import SideBar from '@/components/sidebar/SideBar';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-
 export default {
     data: () => ({
         drawer: false,
-        headers: ['id', 'name', 'surname', 'email', 'action'],
-        users: [],
-        user: {},
+        headers: ['id', 'name TM', 'name RU', 'action'],
+        federations: [],
+        federation: {},
         Toast: Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -20,35 +19,39 @@ export default {
               toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         }),
-        rules: [
-            v => !!v || 'Password is required',
-        ],
     }),
     created() {
-        this.getUsers()
+        this.getFederations()
     },
     methods: {
-        async getUsers() {
-            await axios.get('/users/')
+        async getFederations() {
+            await axios.get('/federations/')
             .then((res) => {
-                this.users = res.data.data
+                this.federations = res.data.data
             })
             .catch((err) => {
                 console.log(err)
             })
         },
 
-        async saveUser() {
-            if (this.user.id == undefined) {
-                await axios.post('/users/', this.user)
+        async updateFederation(item) {
+            this.federation.id = item.id
+            this.federation.nameTm = item.nameTm
+            this.federation.nameRu = item.nameRu
+            this.drawer = !this.drawer
+        },
+
+        async saveFederation() {
+            if (this.federation.id == undefined) {
+                await axios.post('/federations/', this.federation)
                 .then(() => {
-                    this.getUsers()
+                    this.getFederations()
                     this.drawer = !this.drawer
                     this.Toast.fire({
                         icon:'success',
                         title: 'Successfully saved'
                     })
-                    this.user = {}
+                    this.federation = {}
                 })
                 .catch((err) => {
                     console.log(err)
@@ -57,23 +60,21 @@ export default {
                         icon:'error',
                         title: 'Something went wrong'
                     })
-                    this.user = {}
+                    this.federation = {}
                 })
             } else {
-                await axios.patch('/users/' + this.user.id + '/', {
-                    name: this.user.name,
-                    surname: this.user.surname,
-                    email: this.user.email,
-                    password: this.user.password,
+                await axios.patch('/federations/' + this.federation.id + '/', {
+                    nameTm: this.federation.nameTm,
+                    nameRu: this.federation.nameRu
                 })
                 .then(() => {
-                    this.getUsers()
+                    this.getFederations()
                     this.drawer = !this.drawer
                     this.Toast.fire({
                         icon:'success',
                         title: 'Successfully updated'
                     })
-                    this.user = {}
+                    this.federation = {}
                 })
                 .catch((err) => {
                     console.log(err)
@@ -82,12 +83,13 @@ export default {
                         icon:'error',
                         title: 'Something went wrong'
                     })
-                    this.user = {}
+                    this.federation = {}
                 })
             }
         },
 
-        async deleteUser(id) {
+
+        async deleteFederation(id) {
             Swal.fire({
                 title: 'Are you sure?',
                 icon: 'question',
@@ -98,9 +100,9 @@ export default {
             })
             .then((res) => {
                 if (res.isConfirmed) {
-                    axios.delete('/users/' + id + '/')
+                    axios.delete('/federations/' + id + '/')
                     .then(() => {
-                        this.getUsers()
+                        this.getFederations()
                         this.Toast.fire({
                             icon:'success',
                             title: 'Successfully deleted'
@@ -115,19 +117,7 @@ export default {
                     })
                 }
             })
-            
-        },
-
-        async updateUser(item) {
-            this.user.id = item.id
-            this.user.name = item.name
-            this.user.surname = item.surname
-            this.user.email = item.email
-            this.user.password = item.password
-            this.drawer = !this.drawer
         }
-    },
-    computed: {
     },
     components: {
         SideBar

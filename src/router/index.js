@@ -22,7 +22,23 @@ const routes = [
     path: '/users',
     name: 'users',
     component: () => import('@/views/pages/Users/UsersPage.vue')
-  }
+  },
+  {
+    path: '/base-category',
+    name: 'base-category',
+    component: () => import('@/views/pages/Category/BaseCategory/BaseCategory.vue')
+  },
+  {
+    path: '/sport-category',
+    name: 'sport-category',
+    component: () => import('@/views/pages/Category/SportCategory/SportCategory.vue')
+  },
+  {
+    path: '/federation',
+    name: 'federation',
+    component: () => import('@/views/pages/Federation/FederationPage.vue')
+  },
+
 ]
 
 const router = new VueRouter({

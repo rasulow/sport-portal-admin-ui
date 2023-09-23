@@ -32,3 +32,10 @@ export default {
   }
 };
 </script>
+
+<style>
+* {
+    text-transform: unset !important;
+    letter-spacing: normal;
+}
+</style>

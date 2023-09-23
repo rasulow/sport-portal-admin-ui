@@ -39,7 +39,7 @@
                                 width="100%"
                                 height="50"
                                 style="font-size: larger;font-weight: 200;color: white;"
-                                color="#7FBA5E"
+                                color="#0088FF"
                                 tile
                                 @click="login"
                             >

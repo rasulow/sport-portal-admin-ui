@@ -2,13 +2,12 @@ import SideBar from '@/components/sidebar/SideBar';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-
 export default {
     data: () => ({
+        headers: ['id', 'name TM', 'name RU', 'action'],
+        categories: [],
         drawer: false,
-        headers: ['id', 'name', 'surname', 'email', 'action'],
-        users: [],
-        user: {},
+        category: {},
         Toast: Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -20,35 +19,39 @@ export default {
               toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         }),
-        rules: [
-            v => !!v || 'Password is required',
-        ],
     }),
     created() {
-        this.getUsers()
+        this.getCategory()
     },
     methods: {
-        async getUsers() {
-            await axios.get('/users/')
+        async getCategory() {
+            await axios.get('/base-category/')
             .then((res) => {
-                this.users = res.data.data
+                this.categories = res.data.data
             })
             .catch((err) => {
                 console.log(err)
             })
         },
 
-        async saveUser() {
-            if (this.user.id == undefined) {
-                await axios.post('/users/', this.user)
+        async updateCategory(item) {
+            this.category.id = item.id
+            this.category.nameTm = item.nameTm
+            this.category.nameRu = item.nameRu
+            this.drawer = !this.drawer
+        },
+
+        async saveCategory() {
+            if (this.category.id == undefined) {
+                await axios.post('/base-category/', this.category)
                 .then(() => {
-                    this.getUsers()
+                    this.getCategory()
                     this.drawer = !this.drawer
                     this.Toast.fire({
                         icon:'success',
                         title: 'Successfully saved'
                     })
-                    this.user = {}
+                    this.category = {}
                 })
                 .catch((err) => {
                     console.log(err)
@@ -57,23 +60,21 @@ export default {
                         icon:'error',
                         title: 'Something went wrong'
                     })
-                    this.user = {}
+                    this.category = {}
                 })
             } else {
-                await axios.patch('/users/' + this.user.id + '/', {
-                    name: this.user.name,
-                    surname: this.user.surname,
-                    email: this.user.email,
-                    password: this.user.password,
+                await axios.patch('base-category/' + this.category.id + '/', {
+                    nameTm: this.category.nameTm,
+                    nameRu: this.category.nameRu
                 })
                 .then(() => {
-                    this.getUsers()
+                    this.getCategory()
                     this.drawer = !this.drawer
                     this.Toast.fire({
                         icon:'success',
                         title: 'Successfully updated'
                     })
-                    this.user = {}
+                    this.category = {}
                 })
                 .catch((err) => {
                     console.log(err)
@@ -82,12 +83,12 @@ export default {
                         icon:'error',
                         title: 'Something went wrong'
                     })
-                    this.user = {}
+                    this.category = {}
                 })
             }
         },
 
-        async deleteUser(id) {
+        async deleteCategory(id) {
             Swal.fire({
                 title: 'Are you sure?',
                 icon: 'question',
@@ -98,9 +99,9 @@ export default {
             })
             .then((res) => {
                 if (res.isConfirmed) {
-                    axios.delete('/users/' + id + '/')
+                    axios.delete('/base-category/' + id + '/')
                     .then(() => {
-                        this.getUsers()
+                        this.getCategory()
                         this.Toast.fire({
                             icon:'success',
                             title: 'Successfully deleted'
@@ -115,19 +116,8 @@ export default {
                     })
                 }
             })
-            
-        },
 
-        async updateUser(item) {
-            this.user.id = item.id
-            this.user.name = item.name
-            this.user.surname = item.surname
-            this.user.email = item.email
-            this.user.password = item.password
-            this.drawer = !this.drawer
         }
-    },
-    computed: {
     },
     components: {
         SideBar

@@ -15,7 +15,7 @@
                     style="color: #0088FF; border: 1px solid #0088FF; background-color: transparent"
                     @click="drawer = !drawer"
                 >
-                    <v-icon color="#0088FF"> mdi-account-group-outline </v-icon>
+                    <v-icon color="#0088FF"> mdi-flag-variant-outline </v-icon>
                     +
                 </v-btn>
             </v-row>
@@ -43,20 +43,19 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="(item, i) in users"
+                                v-for="(item, i) in federations"
                                 :key="i"
                                 :style="i % 2 == 0 ? 'background-color: #F2F2F7': ''"
                                 class="table-row"
                             >
-                                <td>{{ i + 1 }}</td>
-                                <td>{{ item.name }}</td>
-                                <td>{{ item.surname }}</td>
-                                <td>{{ item.email }}</td>
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.nameTm }}</td>
+                                <td>{{ item.nameRu }}</td>
                                 <td>
-                                    <v-btn icon x-small @click="updateUser(item)">
+                                    <v-btn icon x-small @click="updateFederation(item)">
                                         <v-icon color="orange" size="20">mdi-pencil-outline</v-icon>
                                     </v-btn>
-                                    <v-btn icon x-small @click="deleteUser(item.id)">
+                                    <v-btn icon x-small @click="deleteFederation(item.id)">
                                         <v-icon color="red" size="20">mdi-delete-outline</v-icon>
                                     </v-btn>
                                 </td>
@@ -75,26 +74,24 @@
                 width="400"
                 class="pa-8"
             >
-                <div style="font-size: 20px; margin-bottom: 10px; font-weight: 500">Add User</div>
-                <v-text-field dense class="mt-1 mb-n1" outlined label="Name" v-model="user.name"/>
-                <v-text-field dense class="mb-n1" outlined label="Surname" v-model="user.surname"/>
-                <v-text-field dense class="mb-n1" outlined label="Email" v-model="user.email"/>
-                <v-text-field v-if="user.id == undefined" dense class="mb-n1" outlined label="Password" v-model="user.password"/>
+                <div style="font-size: 20px; margin-bottom: 10px; font-weight: 500">Add Federation</div>
+                <v-text-field dense class="mt-1 mb-n1" outlined label="nameTm" v-model="federation.nameTm"/>
+                <v-text-field dense class="mb-n1" outlined label="nameRu" v-model="federation.nameRu"/>
                 <v-btn
                     dense
                     elevation="0"
                     width="100%"
-                    style="background-color: transparent; border: 1px solid #0088FF; color: #0088FF; font-size: 18px; font-weight: 300;"
-                    @click="saveUser"
+                    style="background-color: transparent; 
+                    border: 1px solid #0088FF; color: #0088FF; font-size: 18px; font-weight: 300;"
+                    @click="saveFederation"
                 >
                     Save
                 </v-btn>
             </v-navigation-drawer>
         </div>
-
     </v-app>
 </template>
 
-<script src="./UsersPage.js"/>
+<script src="./FederationPage.js"/>
 
-<style scoped src="./UsersPage.css"/>
+<style scoped src="./FederationPage.css"/>

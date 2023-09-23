@@ -1,7 +1,7 @@
 <template>
     <v-app :style="{ background: $vuetify.theme.themes.dark.background }">
         <SideBar/>
-        <div style="margin: 20px">
+        <div style="margin: 20px;">
             <v-card
                 elevation="0"
                 color="white"
@@ -9,16 +9,16 @@
                 style="border-radius: 10px; padding: 15px"
             >
                 <v-row no-gutters>
-                <v-spacer/>
-                <v-btn
-                    elevation="0"
-                    style="color: #0088FF; border: 1px solid #0088FF; background-color: transparent"
-                    @click="drawer = !drawer"
-                >
-                    <v-icon color="#0088FF"> mdi-account-group-outline </v-icon>
-                    +
-                </v-btn>
-            </v-row>
+                    <v-spacer/>
+                    <v-btn
+                        elevation="0"
+                        style="color: #0088FF; border: 1px solid #0088FF; background-color: transparent"
+                        @click="drawer = !drawer"
+                    >
+                        <v-icon color="#0088FF"> mdi-shape-outline </v-icon>
+                        +
+                    </v-btn>
+                </v-row>
             </v-card>
 
             <v-card
@@ -43,20 +43,19 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="(item, i) in users"
+                                v-for="(item, i) in categories"
                                 :key="i"
                                 :style="i % 2 == 0 ? 'background-color: #F2F2F7': ''"
                                 class="table-row"
                             >
                                 <td>{{ i + 1 }}</td>
-                                <td>{{ item.name }}</td>
-                                <td>{{ item.surname }}</td>
-                                <td>{{ item.email }}</td>
-                                <td>
-                                    <v-btn icon x-small @click="updateUser(item)">
+                                <td>{{ item.nameTm }}</td>
+                                <td>{{ item.nameRu }}</td>
+                                <td style="width: 100px;">
+                                    <v-btn icon x-small @click="updateCategory(item)">
                                         <v-icon color="orange" size="20">mdi-pencil-outline</v-icon>
                                     </v-btn>
-                                    <v-btn icon x-small @click="deleteUser(item.id)">
+                                    <v-btn icon x-small @click="deleteCategory(item.id)">
                                         <v-icon color="red" size="20">mdi-delete-outline</v-icon>
                                     </v-btn>
                                 </td>
@@ -66,7 +65,6 @@
                 </v-simple-table>
             </v-card>
 
-
             <v-navigation-drawer
                 v-model="drawer"
                 absolute
@@ -75,26 +73,24 @@
                 width="400"
                 class="pa-8"
             >
-                <div style="font-size: 20px; margin-bottom: 10px; font-weight: 500">Add User</div>
-                <v-text-field dense class="mt-1 mb-n1" outlined label="Name" v-model="user.name"/>
-                <v-text-field dense class="mb-n1" outlined label="Surname" v-model="user.surname"/>
-                <v-text-field dense class="mb-n1" outlined label="Email" v-model="user.email"/>
-                <v-text-field v-if="user.id == undefined" dense class="mb-n1" outlined label="Password" v-model="user.password"/>
+                <div style="font-size: 20px; margin-bottom: 10px; font-weight: 500">Add Category</div>
+                <v-text-field dense class="mt-1 mb-n1" outlined label="name TM" v-model="category.nameTm"/>
+                <v-text-field dense class="mb-n1" outlined label="name RU" v-model="category.nameRu"/>
                 <v-btn
                     dense
                     elevation="0"
                     width="100%"
                     style="background-color: transparent; border: 1px solid #0088FF; color: #0088FF; font-size: 18px; font-weight: 300;"
-                    @click="saveUser"
+                    @click="saveCategory"
                 >
                     Save
                 </v-btn>
             </v-navigation-drawer>
         </div>
-
     </v-app>
 </template>
 
-<script src="./UsersPage.js"/>
 
-<style scoped src="./UsersPage.css"/>
+<script src="./BaseCategory.js"/>
+
+<style scoped src="./BaseCategory.css"/>

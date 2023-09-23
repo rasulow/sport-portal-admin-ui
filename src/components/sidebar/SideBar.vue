@@ -6,12 +6,9 @@ export default {
         items: [
             { icon: 'mdi-view-dashboard-outline', text: 'Dashboard', to: '/dashboard' },
             { icon: 'mdi-account-group-outline', text: 'Users', to: '/users' },
-            { icon: 'mdi-ab-testing', text: 'Exams', to: '/exams' },
-            { icon: 'mdi-head-question-outline', text: 'Questions', to: '/questions' },
-            { icon: 'mdi-rocket-outline', text: 'Results', to: '/results' },
-            { icon: 'mdi-account-group-outline', text: 'Groups', to: '/groups' },
-            { icon: 'mdi-account-school-outline', text: 'Students', to: '/students' },
-            { icon: 'mdi-logout', text: 'Logout', to: '/login' },
+            { icon: 'mdi-shape-outline', text: 'Base category', to: '/base-category'},
+            { icon: 'mdi-shape-plus-outline', text: 'Sport category', to: '/sport-category'},
+            { icon: 'mdi-flag-variant-outline', text: 'Federations', to: '/federation'}
         ]
 
     }),
@@ -22,7 +19,8 @@ export default {
 </script>
 
 <template>
-    <v-navigation-drawer v-model="drawer" app color="white" width="250" style="">
+    <v-navigation-drawer v-model="drawer" app color="white" width="250" style="padding: 20px;">
+        <v-img src="@/assets/logo.svg"/>
         <v-list flat class="mt-5">
             <v-list-item-group v-model="selectItem" mandatory>
                 <v-list-item 
@@ -32,8 +30,9 @@ export default {
                     :ripple="false"
                     :to="item.to"
                     active-class="active-class"
+                    style="height: 20px !important;"
                 >
-                    <v-list-item-icon>
+                    <v-list-item-icon style="height: 15px !important;">
                         <!-- <div :class="active ? 'a' : ''"></div> -->
                         <v-icon
                             class="ml-3"
@@ -89,6 +88,6 @@ export default {
 }
 
 .active-class {
-    background-color: #7FBA5E;
+    background-color: #0088FF;
 }
 </style>
