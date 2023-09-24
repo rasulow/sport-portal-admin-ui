@@ -8,7 +8,8 @@ export default {
             { icon: 'mdi-account-group-outline', text: 'Users', to: '/users' },
             { icon: 'mdi-shape-outline', text: 'Base category', to: '/base-category'},
             { icon: 'mdi-shape-plus-outline', text: 'Sport category', to: '/sport-category'},
-            { icon: 'mdi-flag-variant-outline', text: 'Federations', to: '/federation'}
+            { icon: 'mdi-flag-variant-outline', text: 'Federations', to: '/federation'},
+            { icon: 'mdi-alpha-s-circle-outline', text: 'Sports', to: '/federation-sports'}
         ]
 
     }),

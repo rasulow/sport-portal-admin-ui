@@ -36,9 +36,13 @@ const routes = [
   {
     path: '/federation',
     name: 'federation',
-    component: () => import('@/views/pages/Federation/FederationPage.vue')
+    component: () => import('@/views/pages/Federation/FederationPage.vue'),
   },
-
+  {
+    path: '/federation-sports',
+    name: 'federation-sports',
+    component: () => import('@/views/pages/Federation/Sport/SportPage.vue')
+  },
 ]
 
 const router = new VueRouter({
