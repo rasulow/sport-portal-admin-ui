@@ -1,6 +1,5 @@
 <template>
     <v-app :style="{ background: $vuetify.theme.themes.dark.background }">
-        <SideBar/>
         <div style="margin: 20px">
             <v-card
                 elevation="0"
@@ -77,7 +76,6 @@
                 <div style="font-size: 20px; margin-bottom: 10px; font-weight: 500">Add Category</div>
                 <v-text-field dense class="mt-1 mb-n1" outlined label="name TM" v-model="category.nameTm"/>
                 <v-text-field dense class="mb-n1" outlined label="name RU" v-model="category.nameRu"/>
-                <v-text-field dense class="mb-n1" outlined label="section" v-model="category.section"/>
                 <v-btn
                     dense
                     elevation="0"

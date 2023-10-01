@@ -3,9 +3,3 @@
     color: white;
     cursor: pointer;
 }
-
-.key {
-    display: flex;
-    justify-content: end;
-    font-size: 20px;
-}

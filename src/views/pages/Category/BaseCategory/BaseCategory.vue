@@ -1,6 +1,5 @@
 <template>
     <v-app :style="{ background: $vuetify.theme.themes.dark.background }">
-        <SideBar/>
         <div style="margin: 20px;">
             <v-card
                 elevation="0"

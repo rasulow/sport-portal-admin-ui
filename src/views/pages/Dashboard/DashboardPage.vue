@@ -1,6 +1,5 @@
 <template>
     <v-app style="background-color: #F2F2F7;">
-        <SideBar/>
         <div style="
             margin: 20px;
             background-color: white;
