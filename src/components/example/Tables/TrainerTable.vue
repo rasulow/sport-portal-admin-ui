@@ -28,6 +28,7 @@
                         
                     >   
                         <td @click="$emit('show-full-info', item)">{{ i + 1 }}</td>
+
                         <td @click="$emit('show-full-info', item)">{{ item.federation.nameTm }}</td>
                         <td @click="$emit('show-full-info', item)">{{ item.name }}</td>
                         <td @click="$emit('show-full-info', item)">{{ item.job }}</td>

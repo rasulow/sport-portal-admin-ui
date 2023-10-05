@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 export default {
     data: () => ({
         headers: ['id', 'federation', 'president', 'location', 'tel', 'action'],
+
         sports: [],
         sport: {},
         dialog: false,
@@ -46,6 +47,7 @@ export default {
 
         async getSports() {
             await axios.get('/federation-sports/', { params: { take: 100 } })
+
             .then((res) => {
                 this.sports = res.data.data
             })

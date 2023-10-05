@@ -10,6 +10,7 @@ export default {
         drawer: false,
         headers: ['id', 'federation', 'name', 'job', 'sportLevel',
                     'made', 'experience', 'action'],
+
         trainers: [],
         dialog: false,
         info: {}
