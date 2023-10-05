@@ -1,6 +1,5 @@
 <template>
     <v-app :style="{ background: $vuetify.theme.themes.dark.background }">
-        <SideBar/>
         <div style="margin: 20px">
             <v-card
                 elevation="0"
@@ -50,7 +49,7 @@
                                 :style="i % 2 == 0 ? 'background-color: #F2F2F7': ''"
                                 class="table-row"
                             >
-                                <td>{{ item.id }}</td>
+                                <td>{{ i + 1 }}</td>
                                 <td>{{ item.nameTm }}</td>
                                 <td>{{ item.nameRu }}</td>
                                 <td>

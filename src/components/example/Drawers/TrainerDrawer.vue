@@ -75,10 +75,12 @@
                 </v-btn>
             </v-row>
             <v-btn height ="25" outlined @click="addItem('badge')">add work</v-btn>
-            <v-combobox 
-                dense 
-                outlined 
-                label="federation" 
+
+            <v-combobox
+                dense
+                outlined
+                label="federation"
+
                 v-model="federation"
                 :items="federations"
                 item-text="nameTm"
@@ -145,7 +147,8 @@ export default {
         },
 
         async getFederations() {
-            await axios.get('/federations/')
+            await axios.get('/federations/', { params: { take: 100 } })
+
             .then((res) => {
                 this.federations = res.data.data
             })

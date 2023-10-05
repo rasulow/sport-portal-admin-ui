@@ -1,6 +1,5 @@
 <template>
     <v-app :style="{ background: $vuetify.theme.themes.dark.background }">
-        <side-bar/>
         <div style="margin: 20px">
             <nav-button
                 @open-nav-drawer="openNavDrawer"

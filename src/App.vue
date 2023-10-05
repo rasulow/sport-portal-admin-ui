@@ -1,6 +1,10 @@
 <template>
   <v-app>
+
     <v-main>
+      <side-bar
+        v-if="$route.path != '/login'"
+      />
       <router-view/>
     </v-main>
   </v-app>
@@ -8,6 +12,7 @@
 
 <script>
 // import is_have from './utils/haveToken';
+import SideBar from "@/components/sidebar/SideBar.vue";
 
 export default {
   name: 'App',
@@ -29,6 +34,9 @@ export default {
     // }
   },
   watch: {
+  },
+  components: {
+    SideBar
   }
 };
 </script>

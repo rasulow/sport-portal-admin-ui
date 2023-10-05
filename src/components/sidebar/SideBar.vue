@@ -6,11 +6,13 @@ export default {
         items: [
             { icon: 'mdi-view-dashboard-outline', text: 'Dashboard', to: '/dashboard' },
             { icon: 'mdi-account-group-outline', text: 'Users', to: '/users' },
+            { icon: 'mdi-video-box', text: 'Video', to: '/video' },
             { icon: 'mdi-shape-outline', text: 'Base category', to: '/base-category'},
             { icon: 'mdi-shape-plus-outline', text: 'Sport category', to: '/sport-category'},
             { icon: 'mdi-flag-variant-outline', text: 'Federations', to: '/federation'},
             { icon: 'mdi-alpha-s-circle-outline', text: 'Sports', to: '/federation-sports'},
             { icon: 'mdi-account-tie', text: 'Trainers', to: '/federation-trainers'},
+            { icon: 'mdi-weight-lifter', text: 'Athletes', to: '/federation-athletes'},
             { icon: 'mdi-dumbbell', text: 'Gyms & Clubs', to: '/federation-gyms-clubs'}
         ]
 
@@ -22,15 +24,16 @@ export default {
 </script>
 
 <template>
-    <v-navigation-drawer v-model="drawer" app color="white" width="250" style="padding: 20px;">
-        <v-img src="@/assets/logo.svg"/>
-        <v-list flat class="mt-5">
+    <v-navigation-drawer v-model="drawer" app color="white" width="250" style="">
+        <div style="padding: 20px">
+          <v-img src="@/assets/logo.svg"/>
+        </div>
+        <v-list flat>
             <v-list-item-group v-model="selectItem" mandatory>
                 <v-list-item 
                     v-for="(item, i) in items" 
                     :key="i"
                     v-slot="{active}"
-                    :ripple="false"
                     :to="item.to"
                     active-class="active-class"
                     style="height: 20px !important;"
@@ -39,14 +42,13 @@ export default {
                         <!-- <div :class="active ? 'a' : ''"></div> -->
                         <v-icon
                             class="ml-3"
-                            :color="active ? 'white' : '#778290'"
+                            :color="active ? '' : ''"
                         >
                             {{ item.icon }}
                         </v-icon>
                     </v-list-item-icon>
                     <v-list-item-content class="ml-n3">
                         <v-list-item-title
-                            :style="active ? 'color: white' : 'color: #778290'"
                         >
                             {{ item.text }}
                         </v-list-item-title>

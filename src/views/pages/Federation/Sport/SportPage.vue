@@ -1,6 +1,5 @@
 <template>
     <v-app :style="{ background: $vuetify.theme.themes.dark.background }">
-        <SideBar/>
         <div style="margin: 20px">
 
             <v-card
@@ -51,10 +50,12 @@
                                 
                             >   
                                 <td @click="openDialog(item)">{{ i + 1 }}</td>
-                                <td @click="openDialog(item)">{{ item.leader }}</td>
-                                <td @click="openDialog(item)">{{ item.founded }}</td>
-                                <td @click="openDialog(item)">{{ item.location }}</td>
+
+                                <td @click="openDialog(item)">{{ item.federation.nameTm }}</td>
                                 <td @click="openDialog(item)">{{ item.president }}</td>
+                                <td @click="openDialog(item)">{{ item.location }}</td>
+                                <td @click="openDialog(item)">{{ item.tel }}</td>
+
                                 <td>
                                     <v-btn icon x-small @click="updateSport(item)">
                                         <v-icon color="orange" size="20">mdi-pencil-outline</v-icon>

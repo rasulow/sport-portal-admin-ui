@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         async getCategory() {
-            await axios.get('/sport-categories/')
+            await axios.get('/sport-categories/', {params: { take: 100 }})
             .then((res) => {
                 this.categories = res.data.data
             })
@@ -38,7 +38,6 @@ export default {
             this.category.id = item.id
             this.category.nameTm = item.nameTm
             this.category.nameRu = item.nameRu
-            this.category.section = item.section
             this.drawer = !this.drawer
         },
 
@@ -67,7 +66,6 @@ export default {
                 await axios.patch('sport-categories/' + this.category.id + '/', {
                     nameTm: this.category.nameTm,
                     nameRu: this.category.nameRu,
-                    section: this.category.section,
                 })
                 .then(() => {
                     this.getCategory()
