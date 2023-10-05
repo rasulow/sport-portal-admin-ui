@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         async getFederations() {
-            await axios.get('/federations/')
+            await axios.get('/federations/', { params: { take: 100 } })
             .then((res) => {
                 this.federations = res.data.data
             })

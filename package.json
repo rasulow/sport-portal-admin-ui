@@ -1,5 +1,5 @@
 {
-  "name": "quiz-admin",
+  "name": "sport-portal-admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "apexcharts": "^3.42.0",
     "axios": "^1.4.0",
     "core-js": "^3.8.3",
+    "epic-spinners": "^2.0.0",
     "sweetalert2": "^11.7.22",
     "vue": "^2.6.14",
     "vue-apexcharts": "^1.6.2",

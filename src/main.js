@@ -10,7 +10,7 @@ import axios from 'axios'
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://10.10.73.40:3012'
+axios.defaults.baseURL = 'http://10.10.73.40'
 
 
 
@@ -20,3 +20,4 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
