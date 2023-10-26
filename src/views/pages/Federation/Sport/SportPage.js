@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 export default {
     data: () => ({
-        headers: ['id', 'federation', 'president', 'location', 'tel', 'action'],
+        headers: ['id', 'federation', 'presidentTm', 'presidentRu', 'tel', 'action'],
 
         sports: [],
         sport: {},
@@ -58,10 +58,13 @@ export default {
 
         async updateSport(item)  {
             this.sport.id = item.id
-            this.sport.president = item.president
-            this.sport.leader = item.leader
+            this.sport.presidentTm = item.presidentTm
+            this.sport.presidentRu = item.presidentRu
+            this.sport.leaderTm = item.leaderTm
+            this.sport.leaderRu = item.leaderRu
             this.sport.founded = item.founded
-            this.sport.location = item.location
+            this.sport.locationTm = item.locationTm
+            this.sport.locationRu = item.locationRu
             this.sport.tel = item.tel
             this.sport.fax = item.fax
             this.sport.email = item.email
@@ -73,10 +76,13 @@ export default {
         async saveSport() {
             if (this.sport.id === undefined) {
                 axios.post('/federation-sports/', {
-                    president: this.sport.president,
-                    leader: this.sport.leader,
+                    presidentTm: this.sport.presidentTm,
+                    presidentRu: this.sport.presidentRu,
+                    leaderTm: this.sport.leaderTm,
+                    leaderRu: this.sport.leaderRu,
                     founded: this.sport.founded,
-                    location: this.sport.location,
+                    locationTm: this.sport.locationTm,
+                    locationRu: this.sport.locationRu,
                     tel: this.sport.tel,
                     fax: this.sport.fax,
                     email: this.sport.email,
@@ -102,11 +108,14 @@ export default {
                     this.sport = {}
                 }) 
             } else {
-                axios.patch('/federation-sports/' + this.sport.id + '/', {
-                    president: this.sport.president,
-                    leader: this.sport.leader,
+                axios.patch(`/federation-sports/${this.sport.id}/`, {
+                    presidentTm: this.sport.presidentTm,
+                    presidentRu: this.sport.presidentRu,
+                    leaderTm: this.sport.leaderTm,
+                    leaderRu: this.sport.leaderRu,
                     founded: this.sport.founded,
-                    location: this.sport.location,
+                    locationTm: this.sport.locationTm,
+                    locationRu: this.sport.locationRu,
                     tel: this.sport.tel,
                     fax: this.sport.fax,
                     email: this.sport.email,

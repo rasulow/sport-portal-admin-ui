@@ -6,6 +6,7 @@ export default {
         items: [
             { icon: 'mdi-view-dashboard-outline', text: 'Dashboard', to: '/dashboard' },
             { icon: 'mdi-account-group-outline', text: 'Users', to: '/users' },
+            { icon: 'mdi-web', text: 'News', to: '/news'},
             { icon: 'mdi-video-box', text: 'Video', to: '/video' },
             { icon: 'mdi-shape-outline', text: 'Base category', to: '/base-category'},
             { icon: 'mdi-shape-plus-outline', text: 'Sport category', to: '/sport-category'},
@@ -13,7 +14,11 @@ export default {
             { icon: 'mdi-alpha-s-circle-outline', text: 'Sports', to: '/federation-sports'},
             { icon: 'mdi-account-tie', text: 'Trainers', to: '/federation-trainers'},
             { icon: 'mdi-weight-lifter', text: 'Athletes', to: '/federation-athletes'},
-            { icon: 'mdi-dumbbell', text: 'Gyms & Clubs', to: '/federation-gyms-clubs'}
+            { icon: 'mdi-dumbbell', text: 'Gyms & Clubs', to: '/federation-gyms-clubs'},
+            { icon: 'mdi-alpha-d-circle-outline', text: 'Health Care Department', to: '/health-care-department'},
+            { icon: 'mdi-card-account-details-outline', text: 'Health Care Employees', to: '/health-care-employees'},
+            { icon: 'mdi-whistle-outline', text: 'Competition Types', to: '/competition-types'},
+            { icon: 'mdi-trophy-award', text: 'Competitions', to: '/competitions'}
         ]
 
     }),
@@ -41,13 +46,13 @@ export default {
                     <v-list-item-icon style="height: 15px !important;">
                         <!-- <div :class="active ? 'a' : ''"></div> -->
                         <v-icon
-                            class="ml-3"
+                            class=""
                             :color="active ? '' : ''"
                         >
                             {{ item.icon }}
                         </v-icon>
                     </v-list-item-icon>
-                    <v-list-item-content class="ml-n3">
+                    <v-list-item-content class="ml-n4">
                         <v-list-item-title
                         >
                             {{ item.text }}

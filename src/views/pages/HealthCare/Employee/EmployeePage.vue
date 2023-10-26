@@ -3,6 +3,7 @@
     <div style="margin: 20px">
       <nav-button
           icon="mdi-card-account-details-outline"
+          @open-nav-drawer="drawer = !drawer"
       />
 
       <employee-table
@@ -22,6 +23,19 @@
             @close-dialog="dialog = !dialog"
         />
       </v-dialog>
+
+      <v-navigation-drawer
+          v-model="drawer"
+          absolute
+          temporary
+          right
+          width="400"
+          class="pa-8"
+      >
+        <employee-drawer
+
+        />
+      </v-navigation-drawer>
     </div>
   </v-app>
 </template>

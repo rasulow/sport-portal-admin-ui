@@ -52,6 +52,7 @@
                                 <td>{{ i + 1 }}</td>
                                 <td>{{ item.nameTm }}</td>
                                 <td>{{ item.nameRu }}</td>
+                                <td> <v-img :src="item.imagePath" max-width="50"/> </td>
                                 <td>
                                     <v-btn icon x-small @click="updateFederation(item)">
                                         <v-icon color="orange" size="20">mdi-pencil-outline</v-icon>
@@ -78,13 +79,23 @@
                 <div style="font-size: 20px; margin-bottom: 10px; font-weight: 500">Add Federation</div>
                 <v-textarea dense class="mt-1 mb-n1" outlined label="nameTm" v-model="federation.nameTm"/>
                 <v-textarea dense class="mb-n1" outlined label="nameRu" v-model="federation.nameRu"/>
-                <v-btn
+                <v-file-input
+                    v-model="photo"
+                    color="deep-purple accent-4"
+                    label="logo"
+                    prepend-icon="mdi-camera"
+                    outlined
+                    hide-details
                     dense
-                    elevation="0"
-                    width="100%"
-                    style="background-color: transparent; 
-                    border: 1px solid #0088FF; color: #0088FF; font-size: 18px; font-weight: 300;"
-                    @click="saveFederation"
+                    class="mb-6"
+                />
+                <v-btn
+                      dense
+                      elevation="0"
+                      width="100%"
+                      style="background-color: transparent;
+                      border: 1px solid #0088FF; color: #0088FF; font-size: 18px; font-weight: 300;"
+                      @click="saveFederation"
                 >
                     Save
                 </v-btn>

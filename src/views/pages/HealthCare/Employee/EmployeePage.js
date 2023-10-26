@@ -1,13 +1,15 @@
 import NavButton from "@/components/example/NavButton.vue"
 import EmployeeTable from "@/components/example/Tables/EmployeeTable.vue";
 import EmployeeDialog from "@/components/example/Dialogs/EmployeeDialog.vue"
+import EmployeeDrawer from "@/components/example/Drawers/EmployeeDrawer.vue";
 import axios from "axios";
 export default {
     data: () => ({
         employees: [],
         headers: ['id', 'department', 'name', 'job', 'age', 'experience', 'action'],
         info: {},
-        dialog: false
+        dialog: false,
+        drawer: false,
     }),
     created() {
         this.getEmployee().then(() => {})
@@ -35,6 +37,7 @@ export default {
     components: {
         NavButton,
         EmployeeTable,
-        EmployeeDialog
+        EmployeeDialog,
+        EmployeeDrawer
     }
 }

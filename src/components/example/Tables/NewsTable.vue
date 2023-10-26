@@ -35,7 +35,7 @@
             <v-btn icon x-small>
               <v-icon color="orange" size="20">mdi-pencil-outline</v-icon>
             </v-btn>
-            <v-btn icon x-small @click="deleteNews(item.id)">
+            <v-btn icon x-small @click="deleteNews(item.id, item.category.section)">
               <v-icon color="red" size="20">mdi-delete-outline</v-icon>
             </v-btn>
           </td>
@@ -75,7 +75,7 @@ export default {
     }
   },
   methods: {
-    deleteNews(id) {
+    deleteNews(id, section) {
       Swal.fire({
         title: 'Are you sure?',
         icon: 'question',
@@ -92,7 +92,7 @@ export default {
                       icon:'success',
                       title: 'Successfully deleted'
                     })
-                    this.$emit('delete-success')
+                    this.$emit('delete-success', section)
                   })
                   .catch((err) => {
                     console.log(err)

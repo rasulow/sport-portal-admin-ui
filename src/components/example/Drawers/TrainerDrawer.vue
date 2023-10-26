@@ -1,30 +1,112 @@
 <template>
     <div>
-        <v-text-field
-            outlined
-            dense
-            label="name"
-            v-model="trainer.name"
-            class="mt-1"
-        />
-        <v-text-field
-            outlined
-            dense
-            label="job"
-            v-model="trainer.job"
-        />
-        <v-text-field
-            outlined
-            dense
-            label="birthPlace"
-            v-model="trainer.birthPlace"
-        />
-        <v-text-field
-            outlined
-            dense
-            label="sportLevel"
-            v-model="trainer.sportLevel"
-        />
+<!--      nameTm nameRu   -->
+      <v-row no-gutters class="mt-1">
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="nameTm"
+              v-model="trainer.nameTm"
+              class="mr-1"
+          />
+        </v-col>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="nameRu"
+              v-model="trainer.nameRu"
+              class="ml-1"
+          />
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="jobTm"
+              v-model="trainer.jobTm"
+              class="mr-1"
+          />
+        </v-col>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="jobRu"
+              v-model="trainer.jobRu"
+              class="ml-1"
+          />
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="birthPlaceTm"
+              v-model="trainer.birthPlaceTm"
+              class="mr-1"
+          />
+        </v-col>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="birthPlaceRu"
+              v-model="trainer.birthPlaceRU"
+              class="ml-1"
+          />
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="sportLevelTm"
+              v-model="trainer.sportLevelTm"
+              class="mr-1"
+          />
+        </v-col>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="sportLevelRu"
+              v-model="trainer.sportLevelRu"
+              class="ml-1"
+          />
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="madeTm"
+              v-model="trainer.madeTm"
+              class="mr-1"
+          />
+        </v-col>
+        <v-col cols="12" md="6" sm="6">
+          <v-text-field
+              outlined
+              dense
+              label="madeRu"
+              v-model="trainer.madeRu"
+              class="ml-1"
+          />
+        </v-col>
+
+
+      </v-row>
         <v-row no-gutters>
             <v-col cols="12" md="4" sm="4" xs="4">
                 <v-text-field outlined dense label="age" v-model="trainer.age" class="mr-1"/>
@@ -36,45 +118,96 @@
                 <v-text-field outlined dense label="rating" v-model="trainer.rating" class="mx-1"/>
             </v-col>
         </v-row>
-        <v-text-field outlined dense label="made" v-model="trainer.made" class="ml-1"/>
 
-        <div style="font-weight: 700; margin-bottom: 10px">worked At:</div>
-            <v-row no-gutters 
-                v-for="(item, i) in workedAt"
-                :key="i"
-                class="mb-3"
+        <v-row no-gutters>
+          <v-col cols="12" md="6" sm="6">
+            <div
+                style="font-weight: 700;
+                margin-bottom: 10px"
             >
-                <v-text-field
-                    v-model="item.value"
-                    outlined
-                    dense
-                    hide-details
-                    style="width: 25px !important;"
-                />
-                <v-btn icon>
-                    <v-icon @click="removeItem('work', i)">mdi-close</v-icon>
-                </v-btn>
-            </v-row>
-            <v-btn height="25" outlined @click="addItem('work')">add work</v-btn>
+              workedAtTm:
+            </div>
+          </v-col>
+          <v-col cols="12" md="6" sm="6">
+            <div
+                style="font-weight: 700;
+                margin-bottom: 10px"
+            >
+              workedAtRu:
+            </div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters
+              v-for="(item, i) in workedAtTm"
+              :key="i"
+              class="mb-3"
+        >
+          <v-text-field
+              v-model="workedAtTm[i].value"
+              outlined
+              dense
+              hide-details
+              style="width: 25px !important;"
+              class="mr-1"
+          />
+          <v-text-field
+              v-model="workedAtRu[i].value"
+              outlined
+              dense
+              hide-details
+              style="width: 25px !important;"
+              class="ml-1"
+          />
+          <v-btn icon>
+            <v-icon @click="removeItem('work', i)">mdi-close</v-icon>
+          </v-btn>
+        </v-row>
+        <v-btn height="25" outlined @click="addItem('work')">add work</v-btn>
 
-            <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">badges:</div>
-            <v-row no-gutters 
-                v-for="(item, i) in badges"
-                :key="i"
-                class="mb-3"
+        <v-row no-gutters class="mt-5">
+          <v-col cols="12" md="6" sm="6">
+            <div
+                style="font-weight: 700;
+                  margin-bottom: 10px"
             >
-                <v-text-field
-                    v-model="item.value"
-                    outlined
-                    dense
-                    hide-details
-                    style="width: 25px !important;"
-                />
-                <v-btn icon>
-                    <v-icon @click="removeItem('badge', i)">mdi-close</v-icon>
-                </v-btn>
-            </v-row>
-            <v-btn height ="25" outlined @click="addItem('badge')">add work</v-btn>
+              badgeTm:
+            </div>
+          </v-col>
+          <v-col cols="12" md="6" sm="6">
+            <div
+                style="font-weight: 700;
+                  margin-bottom: 10px"
+            >
+              badgeRu:
+            </div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters
+               v-for="(item, i) in badgesTm"
+               :key="i"
+               class="mb-3"
+        >
+          <v-text-field
+              v-model="badgesTm[i].value"
+              outlined
+              dense
+              hide-details
+              style="width: 25px !important;"
+              class="mr-1"
+          />
+          <v-text-field
+              v-model="badgesRu[i].value"
+              outlined
+              dense
+              hide-details
+              style="width: 25px !important;"
+              class="ml-1"
+          />
+          <v-btn icon>
+            <v-icon @click="removeItem('badge', i)">mdi-close</v-icon>
+          </v-btn>
+        </v-row>
+        <v-btn height="25" outlined @click="addItem('badge')">add badge</v-btn>
 
             <v-combobox
                 dense
@@ -108,8 +241,10 @@ import Swal from 'sweetalert2'
 export default {
     data: () => ({
         trainer: {},
-        workedAt: [],
-        badges: [],
+        workedAtTm: [],
+        workedAtRu: [],
+        badgesTm: [],
+        badgesRu: [],
         federations: [],
         federation: null,
         file: null,
@@ -130,19 +265,23 @@ export default {
     },
     methods: {
         addItem(type) {
-            if (type == 'work') {
-                this.workedAt.push({ value: '' })
+            if (type === 'work') {
+                this.workedAtTm.push({ value: '' })
+                this.workedAtRu.push({ value: '' })
             }
-            if (type == 'badge') {
-                this.badges.push({ value: '' })
+            if (type === 'badge') {
+                this.badgesTm.push({ value: '' })
+                this.badgesRu.push({ value: '' })
             }
         },
         removeItem(type, id) {
-            if(type == 'work') {
-                this.workedAt.splice(id, 1)
+            if(type === 'work') {
+                this.workedAtTm.splice(id, 1)
+                this.workedAtRu.splice(id, 1)
             }
-            if (type == 'badge') {
-                this.badges.splice(id, 1)
+            if (type === 'badge') {
+                this.badgesTm.splice(id, 1)
+                this.badgesRu.splice(id, 1)
             }
         },
 

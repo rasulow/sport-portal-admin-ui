@@ -62,6 +62,31 @@ const routes = [
     path: '/video',
     name: 'video',
     component: () => import('@/views/pages/News/Video/VideoPage.vue')
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: () => import('@/views/pages/News/NewsPage.vue')
+  },
+  {
+    path: '/health-care-department',
+    name: 'health-care-department',
+    component: () => import('@/views/pages/HealthCare/Department/DepartmentPage.vue')
+  },
+  {
+    path: '/health-care-employees',
+    name: 'health-care-employees',
+    component: () => import('@/views/pages/HealthCare/Employee/EmployeePage.vue')
+  },
+  {
+    path: '/competition-types',
+    name: 'competition-types',
+    component: () => import('@/views/pages/Competition/CompetitionType/CompetitionType.vue')
+  },
+  {
+    path: '/competitions',
+    name: 'competitions',
+    component: () => import('@/views/pages/Competition/CompetitionPage.vue')
   }
 ]
 

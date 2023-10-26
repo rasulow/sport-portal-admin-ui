@@ -36,8 +36,14 @@
     <v-text-field
         outlined
         dense
-        label="location"
-        v-model="news.location"
+        label="locationTm"
+        v-model="news.locationTm"
+    />
+    <v-text-field
+        outlined
+        dense
+        label="locationRu"
+        v-model="news.locationRu"
     />
     <v-combobox
         outlined
@@ -107,7 +113,8 @@ export default {
       formData.append('nameRu', this.news.nameRu)
       formData.append('textTm', this.news.textTm)
       formData.append('textRu', this.news.textRu)
-      formData.append('location', this.news.location)
+      formData.append('locationTm', this.news.locationTm)
+      formData.append('locationRu', this.news.locationRu)
       formData.append('categoryId', this.news.category.id)
       formData.append('photo', this.news.photo)
 
@@ -122,7 +129,7 @@ export default {
               title: 'Successfully saved'
             })
             this.news = {}
-            this.$emit('close-nav-drawer')
+            this.$emit('close-nav-drawer', this.typeModel)
           })
           .catch((err) => {
             this.Toast.fire({

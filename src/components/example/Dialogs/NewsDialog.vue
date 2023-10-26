@@ -25,7 +25,7 @@
         outlined
         readonly
         dense
-        label="nameTm"
+        label="nameRu"
         :value="info.nameRu"
     />
     <v-textarea
@@ -46,8 +46,8 @@
             outlined
             readonly
             dense
-            label="location"
-            :value="info.location"
+            label="locationTm"
+            :value="info.locationTm"
             class="mr-1"
         />
       </v-col>
@@ -56,14 +56,14 @@
             outlined
             readonly
             dense
-            label="views"
-            :value="info.views"
+            label="locationRu"
+            :value="info.locationRu"
             class="ml-1"
         />
       </v-col>
     </v-row>
     <v-row no-gutters>
-      <v-col cols="12" md="4" sm="4" xs="4">
+      <v-col cols="12" md="3" sm="3" xs="3">
         <v-text-field
             outlined
             readonly
@@ -73,7 +73,7 @@
             class="mr-1"
         />
       </v-col>
-      <v-col cols="12" md="4" sm="4" xs="4">
+      <v-col cols="12" md="3" sm="3" xs="3">
         <v-text-field
             outlined
             readonly
@@ -83,13 +83,23 @@
             class="mx-1"
         />
       </v-col>
-      <v-col cols="12" md="4" sm="4" xs="4">
+      <v-col cols="12" md="3" sm="3" xs="3">
         <v-text-field
             outlined
             readonly
             dense
             label="section"
             :value="info.category.section"
+            class="mx-1"
+        />
+      </v-col>
+      <v-col cols="12" md="3" sm="3" xs="3">
+        <v-text-field
+            outlined
+            readonly
+            dense
+            label="views"
+            :value="info.views"
             class="ml-1"
         />
       </v-col>

@@ -8,8 +8,7 @@ import axios from 'axios';
 export default {
     data: () => ({
         drawer: false,
-        headers: ['id', 'federation', 'name', 'job', 'sportLevel',
-                    'made', 'experience', 'action'],
+        headers: ['id', 'federation', 'nameTm', 'nameRu', 'experience', 'action'],
 
         trainers: [],
         dialog: false,

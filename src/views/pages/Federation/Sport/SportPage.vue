@@ -52,8 +52,8 @@
                                 <td @click="openDialog(item)">{{ i + 1 }}</td>
 
                                 <td @click="openDialog(item)">{{ item.federation.nameTm }}</td>
-                                <td @click="openDialog(item)">{{ item.president }}</td>
-                                <td @click="openDialog(item)">{{ item.location }}</td>
+                                <td @click="openDialog(item)">{{ item.presidentTm }}</td>
+                                <td @click="openDialog(item)">{{ item.presidentRu }}</td>
                                 <td @click="openDialog(item)">{{ item.tel }}</td>
 
                                 <td>
@@ -128,10 +128,13 @@
                     class="pa-8"
                 >
                     <div style="font-size: 20px; margin-bottom: 10px; font-weight: 500">Add sport federation</div>
-                    <v-text-field dense class="mt-1 mb-n1" outlined label="president" v-model="sport.president"/>
-                    <v-text-field dense class="mb-n1" outlined label="leader" v-model="sport.leader"/>
+                    <v-text-field dense class="mt-1 mb-n1" outlined label="presidentTm" v-model="sport.presidentTm"/>
+                    <v-text-field dense class="mt-1 mb-n1" outlined label="presidentRu" v-model="sport.presidentRu"/>
+                    <v-text-field dense class="mb-n1" outlined label="leaderTm" v-model="sport.leaderTm"/>
+                    <v-text-field dense class="mb-n1" outlined label="leaderRu" v-model="sport.leaderRu"/>
                     <v-text-field dense class="mb-n1" outlined label="founded" v-model="sport.founded"/>
-                    <v-text-field dense class="mb-n1" outlined label="location" v-model="sport.location"/>
+                    <v-text-field dense class="mb-n1" outlined label="locationTm" v-model="sport.locationTm"/>
+                    <v-text-field dense class="mb-n1" outlined label="locationRu" v-model="sport.locationRu"/>
                     <v-text-field dense class="mb-n1" outlined label="tel" v-model="sport.tel"/>
                     <v-text-field dense class="mb-n1" outlined label="fax" v-model="sport.fax"/>
                     <v-text-field dense class="mb-n1" outlined label="email" v-model="sport.email"/>

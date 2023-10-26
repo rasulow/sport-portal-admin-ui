@@ -38,7 +38,7 @@
         v-model="video.photo"
         color="deep-purple accent-4"
         label="photo"
-        prepend-icon="mdi-paperclip"
+        prepend-icon="mdi-camera"
         outlined
         hide-details
         dense
@@ -48,7 +48,7 @@
         v-model="video.video"
         color="deep-purple accent-4"
         label="video"
-        prepend-icon="mdi-paperclip"
+        prepend-icon="mdi-video"
         outlined
         hide-details
         dense
