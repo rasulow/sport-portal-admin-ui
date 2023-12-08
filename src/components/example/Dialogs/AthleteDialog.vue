@@ -73,7 +73,7 @@
     </v-row>
 
 <!--    birthPlaceTm birthPlaceRu    -->
-    <v-row no-gutters>
+<v-row no-gutters>
       <v-col cols="12" sm="6" md="6" xs="6">
         <v-text-field
           outlined
@@ -95,132 +95,154 @@
         />
       </v-col>
     </v-row>
+
+  <!--    sportLevelTm sportLevelRu    -->
+    <v-row no-gutters>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="sportLevelTm"
+          :value="info.sportLevelTm"
+          class="mr-1"
+        />
+      </v-col>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="sportLevelRu"
+          :value="info.sportLevelRu"
+          class="ml-1"
+        />
+      </v-col>
+    </v-row>
     
-<!--    club    -->
+
+<v-row no-gutters>
+  <v-col cols="12" md="3" sm="3" xs="3" class="mr-3">
     <v-text-field
         outlined
         readonly
         dense
         label="club"
-        :value="info['club']"
+        :value="info.club"
     />
-<!--    made position   -->
-    <v-row no-gutters>
-      <v-col cols="12" md="6" sm="6" xs="6">
-        <v-text-field
-          outlined
-          readonly
-          dense
-          label="made"
-          :value="info['made']"
-          class="mr-1"
-        />
-      </v-col>
-      <v-col cols="12" md="6" sm="6" xs="6">
-        <v-text-field
-            outlined
-            readonly
-            dense
-            label="position"
-            :value="info['position']"
-            class="ml-1"
-        />
-      </v-col>
-    </v-row>
-<!--    birthPlace sportLevel   -->
-    <v-row no-gutters>
-      <v-col cols="12" md="6" sm="6" xs="6">
-        <v-text-field
-            outlined
-            readonly
-            dense
-            label="birthPlace"
-            :value="info['birthPlace']"
-            class="mr-1"
-        />
-      </v-col>
-      <v-col cols="12" md="6" sm="6" xs="6">
-        <v-text-field
-            outlined
-            readonly
-            dense
-            label="sportLevel"
-            :value="info['sportLevel']"
-            class="ml-1"
-        />
-      </v-col>
-    </v-row>
-<!--    age rating experience views   -->
-    <v-row no-gutters>
-      <v-col cols="12" md="3" sm="3" xs="3">
-        <v-text-field
-          outlined
-          readonly
-          dense
-          label="age"
-          :value="info.age"
-          class="mr-1"
-        />
-      </v-col>
-      <v-col cols="12" md="3" sm="3" xs="3">
-        <v-text-field
-            outlined
-            readonly
-            dense
-            label="rating"
-            :value="info.rating"
-            class="mx-1"
-        />
-      </v-col>
-      <v-col cols="12" md="3" sm="3" xs="3">
-        <v-text-field
-            outlined
-            readonly
-            dense
-            label="experience"
-            :value="info.experience"
-            class="mx-1"
-        />
-      </v-col>
-      <v-col cols="12" md="3" sm="3" xs="3">
-        <v-text-field
-            outlined
-            readonly
-            dense
-            label="views"
-            :value="info.views"
-            class="ml-1"
-        />
-      </v-col>
-    </v-row>
+  </v-col>
+  <v-col cols="12" md="2" sm="2" xs="2" class="mr-3">
+    <v-text-field
+        outlined
+        readonly
+        dense
+        label="age"
+        :value="info.age"
+    />
+  </v-col>
+  <v-col cols="12" md="2" sm="2" xs="2" class="mr-3">
+    <v-text-field
+        outlined
+        readonly
+        dense
+        label="rating"
+        :value="info.rating"
+    />
+  </v-col>
+  <v-col cols="12" md="2" sm="2" xs="2" class="mr-2">
+    <v-text-field
+        outlined
+        readonly
+        dense
+        label="experience"
+        :value="info.experience"
+    />
+  </v-col>
+  <v-col cols="12" md="2" sm="2" xs="2" class="mr-2">
+    <v-text-field
+        outlined
+        readonly
+        dense
+        label="views"
+        :value="info.views"
+    />
+  </v-col>
+</v-row>
+
+<!-- Worked at view -->
     <v-row no-gutters>
       <v-col cols="12" md="6" sm="6">
-        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">workedAt:</div>
+        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">workedAtTm:</div>
+      </v-col>
+      <v-col cols="12" md="6" sm="6">
+        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">workedAtRu:</div>
+      </v-col>
+    </v-row>
+    
+    <v-row no-gutters
+      v-for="(item, id) in info.workedAtTm"
+      :key="id"
+    >
+      <v-col cols="12" md="6" sm="6" xs="6" class="">
         <v-text-field
           outlined
           readonly
           dense
           hide-details
-          v-for="(item, i) in info.workedAt"
-          :key="i"
-          :value="item"
-          class="mb-3 mr-1"
+          :value="info.workedAtTm[id]"
+          class="mr-1"
         />
       </v-col>
-      <v-col cols="12" md="6" sm="6">
-        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">badges:</div>
+      <v-col cols="12" md="6" sm="6" xs="6">
         <v-text-field
-            outlined
-            readonly
-            dense
-            hide-details
-            v-for="(item, i) in info.badges"
-            :key="i"
-            :value="item"
-            class="mb-3 ml-1"
+          outlined
+          readonly
+          dense
+          hide-details
+          :value="info.workedAtRu[id]"
+          class="ml-1"
         />
       </v-col>
     </v-row>
+
+<!-- Badges view -->
+    <v-row no-gutters>
+      <v-col cols="12" md="6" sm="6">
+        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">badgesTm:</div>
+      </v-col>
+      <v-col cols="12" md="6" sm="6">
+        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">badgesRu:</div>
+      </v-col>
+    </v-row>
+    
+    <v-row no-gutters
+      v-for="(item, id) in info.badgesTm"
+      :key="id"
+    >
+      <v-col cols="12" md="6" sm="6" xs="6" class="">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          hide-details
+          :value="info.badgesTm[id]"
+          class="mr-1"
+        />
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          hide-details
+          :value="info.badgesRu[id]"
+          class="ml-1"
+        />
+      </v-col>
+    </v-row>
+
+
+<!-- Image -->
     <v-row no-gutters
       class="d-flex justify-center"
     >
@@ -249,6 +271,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+@media (min-width: 1264px) and (max-width: 1903px) {
+    .flex.lg5-custom {
+        width: 20%;
+        max-width: 20%;
+        flex-basis: 20%;
+    }
+}
 </style>

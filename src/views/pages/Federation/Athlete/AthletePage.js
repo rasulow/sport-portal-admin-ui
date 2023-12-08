@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default {
     data: () => ({
-        headers: ['id', 'federation', 'name', 'sportLevel', 'made', 'experience', 'action'],
+        headers: ['id', 'federation', 'nameTm', 'nameRu', 'action'],
         athletes: [],
         dialog: false,
         info: {},

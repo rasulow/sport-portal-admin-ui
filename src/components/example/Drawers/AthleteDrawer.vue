@@ -111,6 +111,7 @@
       </v-col>
     </v-row>
 
+<!-- Worked at view -->
     <v-row no-gutters>
       <v-col cols="12" md="6" sm="6">
         <div
@@ -156,24 +157,52 @@
     </v-row>
     <v-btn height="25" outlined @click="addItem('work')">add work</v-btn>
 
-    <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">badges:</div>
+<!-- Badge view -->
+    <v-row no-gutters class="mt-3">
+      <v-col cols="12" md="6" sm="6">
+        <div
+            style="font-weight: 700;
+                margin-bottom: 10px"
+        >
+          badgesTm:
+        </div>
+      </v-col>
+      <v-col cols="12" md="6" sm="6">
+        <div
+            style="font-weight: 700;
+                margin-bottom: 10px"
+        >
+          badgesRu:
+        </div>
+      </v-col>
+    </v-row>
     <v-row no-gutters
-           v-for="(item, i) in badges"
+           v-for="(item, i) in badgesTm"
            :key="i"
            class="mb-3"
     >
       <v-text-field
-          v-model="item.value"
+          v-model="badgesTm[i].value"
           outlined
           dense
           hide-details
           style="width: 25px !important;"
+          class="mr-1"
+      />
+      <v-text-field
+          v-model="badgesRu[i].value"
+          outlined
+          dense
+          hide-details
+          style="width: 25px !important;"
+          class="ml-1"
       />
       <v-btn icon>
         <v-icon @click="removeItem('badge', i)">mdi-close</v-icon>
       </v-btn>
     </v-row>
-    <v-btn height ="25" outlined @click="addItem('badge')">add work</v-btn>
+    <v-btn height="25" outlined @click="addItem('badge')">add badge</v-btn>
+
     <v-combobox
         dense
         outlined
@@ -208,7 +237,8 @@ export default {
     athlete: {},
     workedAtTm: [],
     workedAtRu: [],
-    badges: [],
+    badgesTm: [],
+    badgesRu: [],
     federations: [],
     federation: null,
     file: null,
@@ -261,35 +291,44 @@ export default {
 
     async saveInfo() {
 
-      let workedAt = []
-      let badges = []
-      for (let i = 0; i < this.workedAt.length;i++) {
-        workedAt.push(this.workedAt[i].value)
+      let workedAtTm = []
+      let workedAtRu = []
+      let badgesTm = []
+      let badgesRu = []
+      for (let i = 0; i < this.workedAtTm.length;i++) {
+          workedAtTm.push(this.workedAtTm[i].value)
+          workedAtRu.push(this.workedAtRu[i].value)
       }
-      for (let i = 0; i < this.badges.length;i++) {
-        badges.push(this.badges[i].value)
+      for (let i = 0; i < this.badgesTm.length;i++) {
+          badgesTm.push(this.badgesTm[i].value)
+          badgesRu.push(this.badgesRu[i].value)
       }
 
       let formData = new FormData();
 
+      formData.append('nameTm', this.athlete.nameTm)
+      formData.append('nameRu', this.athlete.nameRu)
       formData.append('age', Number(this.athlete.age))
-      formData.append('birthPlace', this.athlete.birthPlace)
-      formData.append('experience', Number(this.athlete.experience))
-      formData.append('sportLevel', this.athlete.sportLevel)
-      formData.append('workedAt', workedAt)
-      formData.append('badges', badges)
-      formData.append('links', {})
-      formData.append('name', this.athlete.name)
+      formData.append('madeTm', this.athlete.madeTm)
+      formData.append('madeRu', this.athlete.madeRu)
+      formData.append('birthPlaceTm', this.athlete.birthPlaceTm)
+      formData.append('birthPlaceRu', this.athlete.birthPlaceRu)
       formData.append('club', this.athlete.club)
-      formData.append('made', this.athlete.made)
       formData.append('rating', Number(this.athlete.rating))
-      formData.append('position', this.athlete.position)
+      formData.append('jobTm', this.athlete.jobTm)
+      formData.append('jobRu', this.athlete.jobRu)
+      formData.append('positionTm', this.athlete.positionTm)
+      formData.append('positionRu', this.athlete.positionRu)
+      formData.append('sportLevelTm', this.athlete.sportLevelTm)
+      formData.append('sportLevelRu', this.athlete.sportLevelRu)
+      formData.append('workedAtTm', workedAtTm)
+      formData.append('workedAtRu', workedAtRu)
+      formData.append('badgesTm', badgesTm)
+      formData.append('badgesRu', badgesRu)
+      formData.append('experience', Number(this.athlete.experience))
+      formData.append('links', {})
       formData.append('federationId', this.federation.id)
       formData.append('photo', this.file)
-
-
-
-
 
 
 
@@ -303,6 +342,12 @@ export default {
               icon:'success',
               title: 'Successfully saved'
             })
+            this.athlete = {}
+            this.workedAtTm = []
+            this.workedAtRu = []
+            this.badgesTm = []
+            this.badgesRu = []
+            this.federation = {}
             this.$emit('close-nav-drawer')
           })
           .catch((err) => {

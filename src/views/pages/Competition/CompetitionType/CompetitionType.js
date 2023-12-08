@@ -42,6 +42,7 @@ export default {
                         icon:'success',
                         title: 'Successfully saved'
                     })
+                    this.getTypes()
                     this.drawer = !this.drawer
                     this.name = {}
                 })

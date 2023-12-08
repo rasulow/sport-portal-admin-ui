@@ -31,7 +31,7 @@ export default {
 <template>
     <v-navigation-drawer v-model="drawer" app color="white" width="250" style="padding: 10px">
         <div style="padding: 20px">
-          <v-img src="@/assets/logo.svg"/>
+          <v-img src="@/assets/logo.png"/>
         </div>
         <v-list flat>
             <v-list-item-group v-model="selectItem" mandatory>

@@ -30,9 +30,7 @@
           <td @click="$emit('show-full-info', item)">{{ i + 1 }}</td>
           <td @click="$emit('show-full-info', item)">{{ item.federation.nameTm }}</td>
           <td @click="$emit('show-full-info', item)">{{ item.nameTm }}</td>
-          <td @click="$emit('show-full-info', item)">{{ item.sportLevelTm }}</td>
-          <td @click="$emit('show-full-info', item)">{{ item.madeTm }}</td>
-          <td @click="$emit('show-full-info', item)">{{ item.experience }}</td>
+          <td @click="$emit('show-full-info', item)">{{ item.nameRu }}</td>
           <td style="width: 100px">
             <v-btn icon x-small>
               <v-icon color="orange" size="20">mdi-pencil-outline</v-icon>
