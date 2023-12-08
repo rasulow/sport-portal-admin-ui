@@ -58,7 +58,7 @@
               outlined
               dense
               label="birthPlaceRu"
-              v-model="trainer.birthPlaceRU"
+              v-model="trainer.birthPlaceRu"
               class="ml-1"
           />
         </v-col>
@@ -300,29 +300,40 @@ export default {
             let formData = new FormData();
 
             formData.append('age', Number(this.trainer.age))
-            formData.append('job', this.trainer.job)
-            formData.append('name', this.trainer.name)
-            formData.append('made', this.trainer.made)
+            formData.append('jobTm', this.trainer.jobTm)
+            formData.append('jobRu', this.trainer.jobRu)
+            formData.append('nameTm', this.trainer.nameTm)
+            formData.append('nameRu', this.trainer.nameRu)
+            formData.append('madeTm', this.trainer.madeTm)
+            formData.append('madeRu', this.trainer.madeRu)
             formData.append('rating', Number(this.trainer.rating))
             formData.append('experience', Number(this.trainer.experience))
-            formData.append('birthPlace', this.trainer.birthPlace)
-            formData.append('sportLevel', this.trainer.sportLevel)
+            formData.append('birthPlaceTm', this.trainer.birthPlaceTm)
+            formData.append('birthPlaceRu', this.trainer.birthPlaceRu)
+            formData.append('sportLevelTm', this.trainer.sportLevelTm)
+            formData.append('sportLevelRu', this.trainer.sportLevelRu)
             formData.append('links', {})
             formData.append('federationId', this.federation.id)
             formData.append('photo', this.file)
             
-            let workedAt = []
-            let badges = []
-            // for (let i = 0; i < this.workedAt.length;i++) {
-            //     workedAt.push(this.workedAt[i].value)
-            // }
-            // for (let i = 0; i < this.badges.length;i++) {
-            //     badges.push(this.badges[i].value)
-            // }
+            let workedAtTm = []
+            let workedAtRu = []
+            let badgesTm = []
+            let badgesRu = []
+            for (let i = 0; i < this.workedAtTm.length;i++) {
+                workedAtTm.push(this.workedAtTm[i].value)
+                workedAtRu.push(this.workedAtRu[i].value)
+            }
+            for (let i = 0; i < this.badgesTm.length;i++) {
+                badgesTm.push(this.badgesTm[i].value)
+                badgesRu.push(this.badgesRu[i].value)
+            }
 
-            formData.append('workedAt', workedAt)
-            formData.append('badges', badges)
-
+            formData.append('workedAtTm', workedAtTm)
+            formData.append('workedAtRu', workedAtRu)
+            formData.append('badgesTm', badgesTm)
+            formData.append('badgesRu', badgesRu)
+            
 
             await axios.post('/federation-trainers/', formData, {
                 headers: {
