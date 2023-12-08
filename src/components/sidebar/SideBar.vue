@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-    <v-navigation-drawer v-model="drawer" app color="white" width="250" style="">
+    <v-navigation-drawer v-model="drawer" app color="white" width="250" style="padding: 10px">
         <div style="padding: 20px">
           <v-img src="@/assets/logo.svg"/>
         </div>
@@ -89,7 +89,7 @@ export default {
 }
 
 .v-list-item-group .v-list-item--active {
-    color: white !important;
+    color: #0088FF !important;
 }
 
 .theme-light.v-list-item--active .v-list-item__subtitle, .theme--light.v-list-item
@@ -98,6 +98,7 @@ export default {
 }
 
 .active-class {
-    background-color: #0088FF;
+    border: 1px solid #0088FF;
+    border-radius: 5px;
 }
 </style>

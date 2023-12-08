@@ -1,63 +1,154 @@
 <template>
   <div>
-    <v-text-field
-        outlined
-        dense
-        label="name"
-        v-model="athlete.name"
-        class="mt-1"
-    />
-    <v-text-field
-        outlined
-        dense
-        label="birthPlace"
-        v-model="athlete.birthPlace"
-    />
-    <v-text-field
-        outlined
-        dense
-        label="sportLevel"
-        v-model="athlete.sportLevel"
-    />
-    <v-text-field
-        outlined
-        dense
-        label="made"
-        v-model="athlete.made"
-    />
+    <v-row no-gutters class="mt-1">
+      <v-text-field
+          outlined
+          dense
+          label="nameTm"
+          v-model="athlete.nameTm"
+          class="mr-1"
+      />
+      <v-text-field
+          outlined
+          dense
+          label="nameRu"
+          v-model="athlete.nameRu"
+          class="ml-1"
+      />
+    </v-row>
+    <v-row no-gutters class="mt-1">
+      <v-text-field
+          outlined
+          dense
+          label="birthPlaceTm"
+          v-model="athlete.birthPlaceTm"
+          class="mr-1"
+      />
+      <v-text-field
+          outlined
+          dense
+          label="birthPlaceRu"
+          v-model="athlete.birthPlaceRu"
+          class="ml-1"
+      />
+    </v-row>
+    <v-row no-gutters class="mt-1">
+      <v-text-field
+          outlined
+          dense
+          label="sportLevelTm"
+          v-model="athlete.sportLevelTm"
+          class="mr-1"
+      />
+      <v-text-field
+          outlined
+          dense
+          label="sportLevelRu"
+          v-model="athlete.sportLevelRu"
+          class="ml-1"
+      />
+    </v-row>
+    <v-row no-gutters class="mt-1">
+      <v-text-field
+          outlined
+          dense
+          label="madeTm"
+          v-model="athlete.madeTm"
+          class="mr-1"
+      />
+      <v-text-field
+          outlined
+          dense
+          label="madeRu"
+          v-model="athlete.madeRu"
+          class="ml-1"
+      />
+    </v-row>
+    <v-row no-gutters class="mt-1">
+      <v-text-field
+          outlined
+          dense
+          label="positionTm"
+          v-model="athlete.positionTm"
+          class="mr-1"
+      />
+      <v-text-field
+          outlined
+          dense
+          label="positionRu"
+          v-model="athlete.positionRu"
+          class="ml-1"
+      />
+    </v-row>
+    <v-row no-gutters class="mt-1">
+      <v-text-field
+          outlined
+          dense
+          label="jobTm"
+          v-model="athlete.jobTm"
+          class="mr-1"
+      />
+      <v-text-field
+          outlined
+          dense
+          label="jobRu"
+          v-model="athlete.jobRu"
+          class="ml-1"
+      />
+    </v-row>
     <v-row no-gutters>
       <v-col cols="12" md="6" sm="6" xs="6">
         <v-text-field outlined dense label="club" v-model="athlete.club" class="mr-1"/>
       </v-col>
-      <v-col cols="12" md="6" sm="6" xs="6">
-        <v-text-field outlined dense label="position" v-model="athlete.position" class="ml-1"/>
+      <v-col cols="12" md="2" sm="2" xs="2">
+        <v-text-field outlined dense label="age" v-model="athlete.age" class="mx-1"/>
       </v-col>
-    </v-row>
-    <v-row no-gutters>
-      <v-col cols="12" md="4" sm="4" xs="4">
-        <v-text-field outlined dense label="age" v-model="athlete.age" class="mr-1"/>
-      </v-col>
-      <v-col cols="12" md="4" sm="4" xs="4">
+      <v-col cols="12" md="2" sm="2" xs="2">
         <v-text-field outlined dense label="experience" v-model="athlete.experience" class="mx-1"/>
       </v-col>
-      <v-col cols="12" md="4" sm="4" xs="4">
-        <v-text-field outlined dense label="rating" v-model="athlete.rating" class="mx-1"/>
+      <v-col cols="12" md="2" sm="2" xs="2">
+        <v-text-field outlined dense label="rating" v-model="athlete.rating" class="ml-1"/>
       </v-col>
     </v-row>
 
-
-    <div style="font-weight: 700; margin-bottom: 10px">worked At:</div>
+    <v-row no-gutters>
+      <v-col cols="12" md="6" sm="6">
+        <div
+            style="font-weight: 700;
+                margin-bottom: 10px"
+        >
+          workedAtTm:
+        </div>
+      </v-col>
+      <v-col cols="12" md="6" sm="6">
+        <div
+            style="font-weight: 700;
+                margin-bottom: 10px"
+        >
+          workedAtRu:
+        </div>
+      </v-col>
+    </v-row>
     <v-row no-gutters
-           v-for="(item, i) in workedAt"
+           v-for="(item, i) in workedAtTm"
            :key="i"
            class="mb-3"
     >
       <v-text-field
-          v-model="item.value"
+          v-model="workedAtTm[i].value"
           outlined
           dense
           hide-details
           style="width: 25px !important;"
+          class="mr-1"
+      />
+      <v-text-field
+          v-model="workedAtRu[i].value"
+          outlined
+          dense
+          hide-details
+          style="width: 25px !important;"
+          class="ml-1"
       />
       <v-btn icon>
         <v-icon @click="removeItem('work', i)">mdi-close</v-icon>
@@ -115,7 +206,8 @@ import Swal from 'sweetalert2'
 export default {
   data: () => ({
     athlete: {},
-    workedAt: [],
+    workedAtTm: [],
+    workedAtRu: [],
     badges: [],
     federations: [],
     federation: null,
@@ -137,19 +229,23 @@ export default {
   },
   methods: {
     addItem(type) {
-      if (type == 'work') {
-        this.workedAt.push({ value: '' })
+      if (type === 'work') {
+        this.workedAtTm.push({ value: '' })
+        this.workedAtRu.push({ value: '' })
       }
-      if (type == 'badge') {
-        this.badges.push({ value: '' })
+      if (type === 'badge') {
+        this.badgesTm.push({ value: '' })
+        this.badgesRu.push({ value: '' })
       }
     },
     removeItem(type, id) {
-      if(type == 'work') {
-        this.workedAt.splice(id, 1)
+      if(type === 'work') {
+        this.workedAtTm.splice(id, 1)
+        this.workedAtRu.splice(id, 1)
       }
-      if (type == 'badge') {
-        this.badges.splice(id, 1)
+      if (type === 'badge') {
+        this.badgesTm.splice(id, 1)
+        this.badgesRu.splice(id, 1)
       }
     },
 

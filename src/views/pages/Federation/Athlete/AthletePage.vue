@@ -43,7 +43,7 @@
           absolute
           temporary
           right
-          width="500"
+          width="800"
           class="pa-8"
       >
         <athlete-drawer

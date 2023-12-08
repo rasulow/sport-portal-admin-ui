@@ -313,12 +313,12 @@ export default {
             
             let workedAt = []
             let badges = []
-            for (let i = 0; i < this.workedAt.length;i++) {
-                workedAt.push(this.workedAt[i].value)
-            }
-            for (let i = 0; i < this.badges.length;i++) {
-                badges.push(this.badges[i].value)
-            }
+            // for (let i = 0; i < this.workedAt.length;i++) {
+            //     workedAt.push(this.workedAt[i].value)
+            // }
+            // for (let i = 0; i < this.badges.length;i++) {
+            //     badges.push(this.badges[i].value)
+            // }
 
             formData.append('workedAt', workedAt)
             formData.append('badges', badges)

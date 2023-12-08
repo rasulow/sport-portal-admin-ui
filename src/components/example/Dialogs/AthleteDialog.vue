@@ -1,13 +1,101 @@
 <template>
   <div>
-<!--    name    -->
-    <v-text-field
-      outlined
-      readonly
-      dense
-      label="name"
-      :value="info['name']"
-    />
+<!--    nameTm nameRu    -->
+    <v-row no-gutters>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="nameTm"
+          :value="info.nameTm"
+          class="mr-1"
+        />
+      </v-col>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="nameRu"
+          :value="info.nameRu"
+          class="ml-1"
+        />
+      </v-col>
+    </v-row>  
+
+<!--    madeTm madeRu    -->
+    <v-row no-gutters>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="madeTm"
+          :value="info.madeTm"
+          class="mr-1"
+        />
+      </v-col>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="madeRu"
+          :value="info.madeRu"
+          class="ml-1"
+        />
+      </v-col>
+    </v-row>
+
+<!--    positionTm positionRu    -->
+    <v-row no-gutters>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="positionTm"
+          :value="info.positionTm"
+          class="mr-1"
+        />
+      </v-col>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="positionRu"
+          :value="info.positionRu"
+          class="ml-1"
+        />
+      </v-col>
+    </v-row>
+
+<!--    birthPlaceTm birthPlaceRu    -->
+    <v-row no-gutters>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="birthPlaceTm"
+          :value="info.birthPlaceTm"
+          class="mr-1"
+        />
+      </v-col>
+      <v-col cols="12" sm="6" md="6" xs="6">
+        <v-text-field
+          outlined
+          readonly
+          dense
+          label="birthPlaceRu"
+          :value="info.birthPlaceRu"
+          class="ml-1"
+        />
+      </v-col>
+    </v-row>
+    
 <!--    club    -->
     <v-text-field
         outlined

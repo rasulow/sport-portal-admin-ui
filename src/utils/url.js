@@ -1,3 +1,3 @@
-const BASE_URL = 'http://10.10.73.40'
+const BASE_URL = 'http://sportportal.com.tm/api'
 
 export default BASE_URL

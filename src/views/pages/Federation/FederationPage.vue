@@ -53,7 +53,7 @@
                                 <td>{{ item.nameTm }}</td>
                                 <td>{{ item.nameRu }}</td>
                                 <td> <v-img :src="item.imagePath" max-width="50"/> </td>
-                                <td>
+                                <td style="width: 100px;">
                                     <v-btn icon x-small @click="updateFederation(item)">
                                         <v-icon color="orange" size="20">mdi-pencil-outline</v-icon>
                                     </v-btn>

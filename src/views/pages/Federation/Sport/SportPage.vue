@@ -56,7 +56,7 @@
                                 <td @click="openDialog(item)">{{ item.presidentRu }}</td>
                                 <td @click="openDialog(item)">{{ item.tel }}</td>
 
-                                <td>
+                                <td style="width: 100px;">
                                     <v-btn icon x-small @click="updateSport(item)">
                                         <v-icon color="orange" size="20">mdi-pencil-outline</v-icon>
                                     </v-btn>

@@ -5,12 +5,13 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import axios from 'axios'
 // import is_have from './utils/haveToken'
+import BASE_URL from "@/utils/url";
 
 
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://10.10.73.40'
+axios.defaults.baseURL = BASE_URL
 
 
 
