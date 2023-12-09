@@ -76,7 +76,7 @@ export default {
         async getGyms() {
             await axios.get('/federation-gyms-and-clubs/')
             .then((res) => {
-                this.gyms = res.data.data
+                this.gyms = res.data.data   
             })
             .catch((err) => {
                 console.log(err)

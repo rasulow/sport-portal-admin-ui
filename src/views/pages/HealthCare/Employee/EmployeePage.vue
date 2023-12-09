@@ -9,7 +9,7 @@
       <employee-table
           :employees="employees"
           :headers="headers"
-          @delete-success="closeNavBar"
+          @delete-success="closeNavDrawer"
           @show-full-info="openDialog"
       />
 
@@ -33,7 +33,7 @@
           class="pa-8"
       >
         <employee-drawer
-          
+          @close-nav-drawer="closeNavDrawer"
         />
       </v-navigation-drawer>
     </div>

@@ -172,16 +172,17 @@
 <!-- Worked at view -->
     <v-row no-gutters>
       <v-col cols="12" md="6" sm="6">
-        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">workedAtTm:</div>
+        <div style="font-weight: 700; margin-top: 10px">workedAtTm:</div>
       </v-col>
       <v-col cols="12" md="6" sm="6">
-        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">workedAtRu:</div>
+        <div style="font-weight: 700; margin-top: 10px">workedAtRu:</div>
       </v-col>
     </v-row>
     
     <v-row no-gutters
       v-for="(item, id) in info.workedAtTm"
       :key="id"
+      class="mt-3"
     >
       <v-col cols="12" md="6" sm="6" xs="6" class="">
         <v-text-field
@@ -208,16 +209,17 @@
 <!-- Badges view -->
     <v-row no-gutters>
       <v-col cols="12" md="6" sm="6">
-        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">badgesTm:</div>
+        <div style="font-weight: 700; margin-top: 10px">badgesTm:</div>
       </v-col>
       <v-col cols="12" md="6" sm="6">
-        <div style="font-weight: 700; margin-bottom: 10px; margin-top: 10px">badgesRu:</div>
+        <div style="font-weight: 700;margin-top: 10px">badgesRu:</div>
       </v-col>
     </v-row>
     
     <v-row no-gutters
       v-for="(item, id) in info.badgesTm"
       :key="id"
+      class="mt-3"
     >
       <v-col cols="12" md="6" sm="6" xs="6" class="">
         <v-text-field

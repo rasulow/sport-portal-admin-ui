@@ -86,7 +86,7 @@ export default {
       })
           .then((res) => {
             if(res.isConfirmed) {
-              axios.delete('/competition-types/ + ' + id + '/')
+              axios.delete(`/competition-types/${id}/`)
                   .then(() => {
                     this.Toast.fire({
                       icon:'success',

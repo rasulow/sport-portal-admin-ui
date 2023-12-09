@@ -6,7 +6,7 @@ import axios from "axios";
 export default {
     data: () => ({
         employees: [],
-        headers: ['id', 'department', 'name', 'job', 'age', 'experience', 'action'],
+        headers: ['id', 'department', 'nameTm', 'nameRu', 'age', 'experience', 'action'],
         info: {},
         dialog: false,
         drawer: false,
@@ -25,7 +25,8 @@ export default {
                 })
         },
 
-        closeNavBar() {
+        closeNavDrawer() {
+            this.drawer = false
             this.getEmployee()
         },
 
