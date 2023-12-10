@@ -169,6 +169,7 @@
                                 </v-col>
                             </v-row>
                         </v-col>
+                        
                         <!-- Images -->
                         <v-col cols="12" md="6" sm="12" xs="12">
                             <!-- image1 image2 -->
