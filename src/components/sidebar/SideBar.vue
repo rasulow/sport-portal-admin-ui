@@ -18,7 +18,8 @@ export default {
             { icon: 'mdi-alpha-d-circle-outline', text: 'Health Care Department', to: '/health-care-department'},
             { icon: 'mdi-card-account-details-outline', text: 'Health Care Employees', to: '/health-care-employees'},
             { icon: 'mdi-whistle-outline', text: 'Competition Types', to: '/competition-types'},
-            { icon: 'mdi-trophy-award', text: 'Competitions', to: '/competitions'}
+            { icon: 'mdi-trophy-award', text: 'Competitions', to: '/competitions'},
+            { icon: 'mdi-logout', text: 'Logout', to: '/login'}
         ]
 
     }),

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-// import is_have from './utils/haveToken';
+import is_have from './utils/haveToken';
 import SideBar from "@/components/sidebar/SideBar.vue";
 
 export default {
@@ -20,18 +20,18 @@ export default {
   data: () => ({
   }),
   created() {
-    // this.checkUser()
+    this.checkUser()
   },
   mounted() {
   },  
   beforeDestroy() {
   }, 
   methods: {
-    // async checkUser() {
-    //   if (!is_have()) {
-    //       this.$router.push('/login');
-    //   }
-    // }
+    async checkUser() {
+      if (!is_have()) {
+          this.$router.push('/login');
+      }
+    }
   },
   watch: {
   },

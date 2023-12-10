@@ -13,6 +13,8 @@ Vue.config.productionTip = false
 
 axios.defaults.baseURL = BASE_URL
 
+const token = `Bearer ${localStorage.getItem('token')}`
+axios.defaults.headers['Authorization'] = token 
 
 
 new Vue({

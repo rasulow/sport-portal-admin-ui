@@ -16,10 +16,10 @@
                             </v-row>
                             <v-row no-gutters justify="start">
                                 <v-text-field
-                                    label="Username"
-                                    v-model="username"
+                                    label="Email"
+                                    v-model="email"
                                     outlined
-                                    :rules="usernameRules"
+                                    :rules="emailRules"
                                 />
                             </v-row>
                             <v-row no-gutters justify="start">
