@@ -14,6 +14,7 @@
                   hide-details
                   :items="types"
                   v-model="typeModel"
+                  clearable
                   @change="$emit('change-type', typeModel)"
               />
             </v-col>
@@ -34,7 +35,7 @@
     export default {
         data: () => ({
           types: ['Local', 'World'],
-          typeModel: 'Local'
+          typeModel: ''
         }),
         props: {
             icon: {

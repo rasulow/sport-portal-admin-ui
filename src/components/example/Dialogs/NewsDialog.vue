@@ -108,8 +108,8 @@
       <v-img
           :src="`${url}/${info.imagePath}`"
           max-width="500"
-          max-height="250"
-      />
+          />
+          <!-- max-height="250" -->
     </v-row>
   </v-card>
 </template>

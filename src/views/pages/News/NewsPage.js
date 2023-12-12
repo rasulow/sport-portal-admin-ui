@@ -17,9 +17,6 @@ export default {
     },
     methods: {
         async getNews(item) {
-            if (item === undefined) {
-                item = 'Local'
-            }
             await axios.get('/news/', { params: { 'section': item } })
                 .then((res) => {
                     this.news = res.data.data
